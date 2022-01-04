@@ -1,0 +1,107 @@
+/* CSS Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    /* color:White; */
+  
+}
+
+html, body{
+    height: 100%;
+    width:100%;
+}
+
+/* Css Variables */
+:root{
+    --primary : #0d6efd;
+    /* --primary: #ffc107; */
+}
+
+/* Css */
+.nav-link, .nav-link .btn{
+    margin:0 10px;
+}
+
+.overlay{
+    height:92vh;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.712);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.1rem;
+    color:white;
+}
+
+#landing{
+    z-index:1;
+    background-image: url("../images/LandingBg.jpg");
+    height:92vh;
+    width:100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#landing #head{
+    text-transform: uppercase;
+    color:var(--primary);
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+h2{
+    color: #0d6efd;
+}
+
+/* section for more about code adapt */
+.learn a{
+    text-decoration: none; 
+    color: rgb(54, 53, 53)!important;
+     transition: .1s;
+     font-size: 18px!important;
+  }
+  .navbar{
+    z-index: 1!important;
+    /* position: relative; */
+  }
+  .learn a:hover{
+   
+     border-bottom: 2px solid rgb(126, 124, 124);
+     color: rgb(67, 69, 70);
+  }
+
+  .row .tp{
+    text-align: center;
+ width: 83%;
+ }
+ .prot{
+   font-weight: 200;
+   font-size: 35px;
+ }
+ .rot{
+   font-size: 20px;
+
+ }
+ .ty{
+   text-align: right!important;
+ }
+ .tl{
+   text-align: left!important;
+ }
+
+ .mpl{
+   padding-top: 160px;
+ }
+ .about-image{
+   min-width: 100;
+   height: 30px;
+ }
+
+/* footer */
+.sie{
+    background-color: #222;
+    color: aliceblue;
+}

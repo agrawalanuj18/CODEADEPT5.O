@@ -105,3 +105,8 @@ h2{
     background-color: #222;
     color: aliceblue;
 }
+
+@media (max-width: 991.98px) { 
+    .ty,.tl{
+ text-align: center!important; }
+ }

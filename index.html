@@ -58,8 +58,24 @@
     </div>
     <!-- Landing -->
 
+
+<!-- Section for More about code ADAPT -->
+<section class=" my-5 " data-aos="fade-up">
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-5 tp mx-auto">
+        <h3 class="prot">About</h3>
+        <p class=" rot ">Code.org is a non-profit organization and eponymous website led by Hadi and Ali Partovi that aims to encourage people, particularly school students in the United States, to learn computer science</p>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section -->
+
+
     <!-- Section for More about code ADAPT -->
-    <section class="mt-1 pt-2" data-aos="fade-up">
+    <section class="my-5 " data-aos="fade-up">
       <div class="container mt-3">
         <div class="row">
           <div class="col-5 tp mx-auto">
@@ -71,6 +87,89 @@
       </div>
     </section>
     <!-- Section -->
+
+    <!-- Testimonial -->
+    <section class="my-5 " data-aos="fade-up">
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col-5 tp mx-auto">
+            <h3 class="prot">Sandesh Jain</h3>
+            <p class=" rot ">Code.org is a non-profit organization and eponymous website led by Hadi and Ali Partovi that aims to encourage people, particularly school students in the United States, to learn computer science</p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section -->
+
+<!-- Testimonial -->
+<div class="wrapper" id="wrapper">
+  <p class="">First Slide text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard <span class="italic">dummy text ever since the 1500s,</span> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  <p class="">Second Slide text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard <span class="italic">dummy text ever since the 1500s,</span> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  <p class="">Third Slide text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard <span class="italic">dummy text ever since the 1500s,</span> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  <ul class="dots-wrap">
+    <li class="dot"></li>
+    <li class="dot"></li>
+    <li class="dot"></li>
+  </ul>
+</div>
+
+<!-- timeline  -->
+
+<article class="timeline">
+  <dl>
+    <div class="cell">
+      <div class="cell-content">
+        <dt>Sep 24</dt>
+        <dd>Cargo Ready    </dd>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-content">
+        <dt>Sep 25</dt>
+        <dd>Pickup Date</dd>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-content">
+        <dt>Oct 01</dt>
+        <dd>Cutoff Date</dd>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-content">
+        <dt>Oct 07</dt>
+        <dd>FMC Date</dd>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-content">
+        <dt>Oct 20</dt>
+        <dd>ATD</dd>
+        <dd>ETD</dd>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-content">
+        <dt>Nov 20</dt>
+        <dd>Est DSH</dd>
+        <dd>DSH</dd>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-content">
+        <dt>Nov 28</dt>
+        <dd>ETA Original</dd>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-content">
+        <dt>Dec 31</dt>
+        <dd>FMC End Date</dd>
+      </div>
+    </div>
+  </dl>
+</article>
 
 
 
@@ -144,8 +243,123 @@
       duration: 800,
     }
   );
-</script>
 
+</script>
+<script>
+  var commentSlider = {
+  
+  'config' : {
+    'container' : $('#wrapper')
+  },
+    
+  'init' : function(config) {
+      if(config && typeof(config) == 'object') {
+        $.extend(commentSlider.config, config);
+      }
+    
+      //caching dom elements
+      //wrapper
+      commentSlider.$container = commentSlider.config.container;
+
+      //all paragraph tags
+      commentSlider.$paragraphs = commentSlider.$container.
+        find('p');
+    
+      //all li tags
+      commentSlider.$dots = commentSlider.$container.
+        find('ul.dots-wrap > li');
+    
+      //first li within ul.dots-wrap
+      commentSlider.$firstDot = commentSlider.$container.
+        find('ul.dots-wrap > li:first-child');
+    
+      //first p tag within module wrapper
+      commentSlider.$firstParagraph = commentSlider.$container.
+        find('p:first-child');
+      
+      //setting first dot with .active class
+      commentSlider.$firstDot.addClass('active');
+
+      //setting first paragraph tag with .active class
+      commentSlider.$firstParagraph.addClass('activeText');
+    
+      //initializing functions and defining their parameters
+      commentSlider.currentItem(commentSlider.$paragraphs, commentSlider.$dots);
+      commentSlider.setActiveDot(commentSlider.$dots);
+      commentSlider.timer();
+  },
+  
+  //timer function runs necesary functions every five seconds
+  'timer' : function() {
+    setInterval(function(){ 
+      
+    }, 5000);
+  }, //timer function end
+  
+  //grabs current numerical class of dot clicked
+  'dotNumber' : function($dot) {
+    var dotClassArray = [];
+    var dotClassList = dotClassArray.push($dot.attr('class'));
+    var splitArray = dotClassArray.toString().split(' ');
+    
+    for(i = 0; i < splitArray.length; i++) {
+      if (splitArray[i] === "dot") { 
+        splitArray.splice(i, 1);
+        var dotClickedNumber = splitArray[i];
+        commentSlider.paragraphNumber(dotClickedNumber, commentSlider.$paragraphs);
+      }
+    }
+  },//end dotNumber
+  
+  'paragraphNumber' : function(dotClickedNumber, $paragraphs) {
+    $paragraphs.each(function() {
+        var $paragraph = $(this);
+        var paragraphClass = $paragraph.attr('class');    
+       
+        if(paragraphClass === dotClickedNumber) {          
+          $paragraph.addClass('activeText');
+          $paragraph.siblings().removeClass('activeText').addClass('slideLeft');
+          setTimeout(function () { 
+             $paragraph.siblings().removeClass('slideLeft');    
+          }, 400);          
+        }
+    });
+  },//end paragraphNumber
+  
+  //currentItem function gives every paragraph and dot a numerical class
+  //based on their array position
+  'currentItem' : function($paragraphs, $dots) {
+    $paragraphs.each(function(i) {
+      var $paragraph = $(this);
+      $paragraph.addClass([] + i);
+    });
+    
+    $dots.each(function(i) {
+      var $dot = $(this);
+      $dot.addClass([] + i);
+    });
+  },//end currentItem
+  
+  //setActiveDot adds class active to whichever dot is clicked
+  'setActiveDot' : function($dots) {
+    $dots.each( function() {
+      var $dot = $(this);
+      $dot.on('click', function() {
+        if($dot.hasClass('active')) {
+          return false;
+        } else {
+          $dot.addClass('active');
+          $dot.siblings().removeClass('active');
+        }
+        commentSlider.dotNumber($dot);      
+      });
+    });
+  }//end setActiveDot
+};
+  
+//initializes the entire thing by calling the init function  
+$(document).ready(commentSlider.init);
+</script>
 
 
 </body>
